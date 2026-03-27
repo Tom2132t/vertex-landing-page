@@ -1,0 +1,25 @@
+<svg width="800" height="520" viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="520" rx="32" fill="#F8FBFC"/>
+  <rect x="32" y="32" width="736" height="456" rx="28" fill="url(#paint0_linear)"/>
+  <path d="M110 376C175 311 215 284 277 275C356 264 435 300 497 289C566 277 614 214 684 177" stroke="#2E8B57" stroke-width="18" stroke-linecap="round"/>
+  <path d="M110 408C182 351 263 330 337 335C432 341 510 390 611 378C653 373 686 359 708 341" stroke="#1DA7B8" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="230" cy="302" r="14" fill="#2E8B57"/>
+  <circle cx="414" cy="291" r="14" fill="#1DA7B8"/>
+  <circle cx="599" cy="268" r="14" fill="#0F6C74"/>
+  <rect x="584" y="86" width="66" height="90" rx="14" fill="#111827"/>
+  <circle cx="620" cy="115" r="20" fill="white" stroke="#111827" stroke-width="8"/>
+  <rect x="598" y="137" width="30" height="20" fill="#D1D5DB"/>
+  <path d="M595 176L569 262H584L609 190L595 176Z" fill="#111827"/>
+  <path d="M642 176L668 262H682L652 190L642 176Z" fill="#111827"/>
+  <rect x="612" y="178" width="10" height="88" fill="#111827"/>
+  <rect x="630" y="178" width="10" height="88" fill="#111827"/>
+  <rect x="82" y="84" width="260" height="108" rx="20" fill="white" fill-opacity="0.95"/>
+  <text x="110" y="122" fill="#0F6C74" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Surveying Services</text>
+  <text x="110" y="151" fill="#1F2937" font-family="Arial, Helvetica, sans-serif" font-size="18">Field capture, drone data and terrain models</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="66" y1="78" x2="716" y2="462" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ECF8F5"/>
+      <stop offset="1" stop-color="#E6F1F8"/>
+    </linearGradient>
+  </defs>
+</svg>

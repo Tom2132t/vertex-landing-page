@@ -1,0 +1,28 @@
+<svg width="800" height="520" viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="520" rx="32" fill="#F8FBFC"/>
+  <rect x="32" y="32" width="736" height="456" rx="28" fill="url(#paint0_linear)"/>
+  <path d="M92 118H708" stroke="#4FC3CF" stroke-width="2" stroke-dasharray="10 10"/>
+  <path d="M92 212H708" stroke="#4FC3CF" stroke-width="2" stroke-dasharray="10 10"/>
+  <path d="M92 306H708" stroke="#4FC3CF" stroke-width="2" stroke-dasharray="10 10"/>
+  <path d="M92 400H708" stroke="#4FC3CF" stroke-width="2" stroke-dasharray="10 10"/>
+  <path d="M146 84V436" stroke="#4FC3CF" stroke-width="2" stroke-dasharray="10 10"/>
+  <path d="M306 84V436" stroke="#4FC3CF" stroke-width="2" stroke-dasharray="10 10"/>
+  <path d="M466 84V436" stroke="#4FC3CF" stroke-width="2" stroke-dasharray="10 10"/>
+  <path d="M626 84V436" stroke="#4FC3CF" stroke-width="2" stroke-dasharray="10 10"/>
+  <path d="M140 336C217 256 269 211 359 210C446 210 486 290 582 290C629 290 669 268 702 236" stroke="#1DA7B8" stroke-width="20" stroke-linecap="round"/>
+  <circle cx="223" cy="278" r="16" fill="#0F6C74"/>
+  <circle cx="398" cy="211" r="16" fill="#1DA7B8"/>
+  <circle cx="578" cy="290" r="16" fill="#4FC3CF"/>
+  <rect x="76" y="72" width="224" height="92" rx="20" fill="white" fill-opacity="0.95"/>
+  <text x="104" y="108" fill="#0F6C74" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Vertex GIS Solutions</text>
+  <text x="104" y="136" fill="#1F2937" font-family="Arial, Helvetica, sans-serif" font-size="18">Live mapping and spatial insight</text>
+  <rect x="558" y="344" width="170" height="96" rx="22" fill="white" fill-opacity="0.95"/>
+  <text x="586" y="381" fill="#1DA7B8" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Monitoring</text>
+  <text x="586" y="410" fill="#1F2937" font-family="Arial, Helvetica, sans-serif" font-size="17">Layers, alerts, analytics</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="95" y1="60" x2="725" y2="441" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8F8FA"/>
+      <stop offset="1" stop-color="#DDF1F3"/>
+    </linearGradient>
+  </defs>
+</svg>
