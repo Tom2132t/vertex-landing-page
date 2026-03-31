@@ -38,7 +38,7 @@ export const HomePage = () => {
 
             <MediaBlock
               mediaType="image"
-              mediaUrl={homeHero.mediaUrl ?? ''}
+              mediaUrl=""
               mediaAlt={homeHero.mediaAlt}
               large
             />
