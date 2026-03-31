@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from '../assets/tvs-logo.jpeg';
 import { contactDetails, navigationItems } from '../data/siteContent';
 
@@ -17,8 +18,8 @@ export const SiteFooter = () => {
               </div>
             </div>
             <p className="max-w-md text-sm leading-7 text-slate-600">
-              TVS Studio presents practical GIS and surveying capabilities with a clean,
-              professional company profile focused on clarity, delivery, and project support.
+              We provide high-precision surveying and GIS services that transform spatial data
+              into actionable insights for engineering, construction, and planning projects.
             </p>
           </div>
 
@@ -27,14 +28,14 @@ export const SiteFooter = () => {
               Navigation
             </div>
             <div className="mt-4 flex flex-col gap-3 text-sm text-slate-600">
+              <Link to="/" className="transition hover:text-vertex-primary">
+                Home
+              </Link>
               {navigationItems.map((item) => (
-                <a key={item.id} href={`#${item.id}`} className="transition hover:text-vertex-primary">
+                <Link key={item.href} to={item.href} className="transition hover:text-vertex-primary">
                   {item.label}
-                </a>
+                </Link>
               ))}
-              <a href="#contact" className="transition hover:text-vertex-primary">
-                Contact
-              </a>
             </div>
           </div>
 

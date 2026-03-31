@@ -9,8 +9,8 @@ export const ContactPanel = () => {
           <div className="space-y-4">
             <h2 className="section-title">Start a project with us</h2>
             <p className="max-w-xl text-base leading-8 text-slate-600 md:text-lg">
-              Tell us about your GIS or surveying needs and we&apos;ll get back to you with
-              the right next steps.
+              For surveying, GIS solutions, photogrammetry, LiDAR processing, or CAD-ready
+              deliverables, contact us and we can discuss the right next steps for your project.
             </p>
           </div>
           <div className="surface-card space-y-5 p-6 text-slate-600 md:p-7">
@@ -41,21 +41,21 @@ export const ContactPanel = () => {
               Enquiry Panel
             </div>
             <h3 className="text-2xl font-semibold text-vertex-text">
-              Share your project requirements
+              Enquiry placeholder
             </h3>
             <p className="text-base leading-8 text-slate-600">
-              This area can later hold a proper enquiry form or consultation request flow.
-              For now, it acts as a clear call-to-action area for new business enquiries.
+              This area is reserved for a future project enquiry form, consultation request,
+              or service-specific intake flow.
             </p>
           </div>
 
           <div className="rounded-xl border border-dashed border-vertex-border bg-slate-50 p-6">
-            <div className="text-sm font-medium text-slate-700">Future enquiry options</div>
+            <div className="text-sm font-medium text-slate-700">Possible future additions</div>
             <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
               <li>Project enquiry form</li>
               <li>Schedule a consultation</li>
-              <li>Embedded service area map</li>
-              <li>Company response time or office hours</li>
+              <li>Service request categories</li>
+              <li>Upload area for project information</li>
             </ul>
           </div>
 

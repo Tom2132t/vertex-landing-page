@@ -1,101 +1,301 @@
-import companyLogo from '../assets/tvs-logo.jpeg';
-import gisVisual from '../assets/gis-visual.svg';
-import surveyingVisual from '../assets/surveying-visual.svg';
-import type { ContactDetails, SiteSection, SurveyingDetailItem } from '../types/siteContent';
+import markdownContent from './content.md?raw';
+import type { ContactDetails, HomeServiceCard, ServicePageContent } from '../types/siteContent';
 
-export const aboutContent: SiteSection = {
-  id: 'about-us',
-  label: 'About Us',
-  title: 'TVS Studio',
-  subtitle: 'A clear company profile for GIS, mapping, and surveying services.',
-  paragraphs: [
-    'TVS Studio is a company presentation website for TerraView Surveying Studio, focused on communicating who we are, what we do, and how we support GIS and surveying projects with clarity.',
-    'Our work combines practical field knowledge, geospatial thinking, and modern digital workflows to deliver dependable results for land, infrastructure, and mapping-related operations.',
-    'This website is structured to keep company information easy to maintain, so text, media, and technology lists can be updated quickly as services evolve.'
-  ],
-  mediaType: 'image',
-  mediaUrl: companyLogo,
-  mediaAlt: 'TVS Studio company logo',
-  ctaLabel: 'Contact Us',
-  ctaHref: '#contact',
-  secondaryCtaLabel: 'View Services',
-  secondaryCtaHref: '#gis-solutions'
+// ─── Image assets ─────────────────────────────────────────────────────────────
+import gnssImg from '../assets/GNSS.jpg';
+import gnss2Img from '../assets/GNSS 2.jpg';
+import indoorMappingImg from '../assets/Indoor mapping.jpg';
+import lidarImg from '../assets/LIDAR.jpg';
+import matriceImg from '../assets/Matrice DJI 300.jpg';
+import photogrammetryImg from '../assets/PHOTOGRAMMETRY.jpg';
+import phantom4Img from '../assets/Phantom 4 RTK.jpg';
+import topographicImg from '../assets/Topographic-Survey.jpg';
+import zenmuseImg from '../assets/Zenmuse L2 Lidar.jpg';
+import gisVisual from '../assets/gis-visual.svg';
+
+// ─── Markdown parser utilities ────────────────────────────────────────────────
+
+const headingPattern = /^(#{2,3})\s+\*\*(.+?)\*\*\s*$/;
+
+const sectionBodies = markdownContent.split('\n').reduce<Record<string, string[]>>((acc, line) => {
+  const match = line.match(headingPattern);
+
+  if (match) {
+    acc[match[2]] = [];
+    acc.__current = [match[2]];
+    return acc;
+  }
+
+  const current = acc.__current?.[0];
+
+  if (current) {
+    acc[current].push(line);
+  }
+
+  return acc;
+}, {});
+
+delete sectionBodies.__current;
+
+const getSectionBody = (title: string) => {
+  return (sectionBodies[title] ?? []).join('\n').trim();
 };
 
-export const serviceSections: SiteSection[] = [
-  {
-    id: 'gis-solutions',
-    label: 'GIS Solutions',
-    title: 'Vertex GIS Solutions',
-    subtitle: 'Spatial information, monitoring, and mapping workflows presented in a practical way.',
-    paragraphs: [
-      'Vertex represents the GIS-focused side of our company presentation, where mapping, monitoring, and data interpretation come together in a clean operational workflow.',
-      'We build GIS solutions that help teams organize spatial information, view activity on interactive maps, and turn location-based data into usable decisions.',
-      'Our approach supports both internal operations and client-facing map experiences, with a focus on clarity, accessibility, and long-term maintainability.',
-      'Whether the need is project visualization, asset oversight, or spatial reporting, the platform is presented as a practical toolset rather than a marketing-heavy product pitch.'
-    ],
-    mediaType: 'image',
-    mediaUrl: gisVisual,
-    mediaAlt: 'Illustration representing GIS mapping and monitoring',
-    technologies: [
-      'GIS Mapping',
-      'Spatial Analysis',
-      'Web GIS',
-      'GeoServer',
-      'Leaflet / Mapbox',
-      'Data Visualization'
-    ]
-  },
-  {
-    id: 'surveying',
-    label: 'Surveying',
-    title: 'Surveying Services',
-    subtitle: 'Field accuracy, terrain understanding, and efficient digital delivery.',
-    paragraphs: [
-      'Our surveying section presents the field and measurement side of the company, with a straightforward overview of methods, outputs, and supporting technologies.',
-      'We support land surveying workflows that depend on accuracy, reliable data capture, and efficient movement from field collection to digital delivery.',
-      'Drone-assisted surveying, GNSS workflows, and terrain modeling help us extend field visibility while maintaining practical integration with downstream design and planning tools.',
-      'The presentation is intentionally simple so additional capabilities or case-specific content can be added later without changing the layout.'
-    ],
-    mediaType: 'image',
-    mediaUrl: surveyingVisual,
-    mediaAlt: 'Illustration representing surveying and terrain workflows',
-    technologies: [
-      'Land Surveying',
-      'GPS / GNSS',
-      'Drone Surveying',
-      'CAD Integration',
-      'Terrain Modeling'
-    ]
-  }
-];
+const cleanMarkdown = (value: string) => {
+  return value
+    .replace(/\*\*(.*?)\*\*/g, '$1')
+    .replace(/`/g, '')
+    .replace(/^[""]|[""]$/g, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+};
+
+const getParagraphs = (title: string) => {
+  return getSectionBody(title)
+    .split(/\n\s*\n/)
+    .map((block) => block.trim())
+    .filter((block) => block.length > 0 && !block.startsWith('*') && block !== '---')
+    .map(cleanMarkdown);
+};
+
+const getFirstParagraph = (title: string) => {
+  return getParagraphs(title)[0] ?? '';
+};
+
+/** Returns bullets with the full text (no stripping after –) */
+const getBulletsRaw = (title: string) => {
+  return getSectionBody(title)
+    .split('\n')
+    .map((line) => line.trim())
+    .filter((line) => line.startsWith('* '))
+    .map((line) => cleanMarkdown(line.replace(/^\*\s+/, '')));
+};
+
+/** Returns bullets stripped at – (just the capability name, used for overview badges) */
+const getBulletNames = (title: string) => {
+  return getBulletsRaw(title).map((line) => line.split(' – ')[0]);
+};
+
+// ─── Contact ─────────────────────────────────────────────────────────────────
 
 export const contactDetails: ContactDetails = {
-  company: 'TerraView Surveying Studio',
+  company: 'TVS Studio',
   email: 'info@tvsstudio.example',
   phone: '+355 69 000 0000',
   address: 'Tirane, Albania'
 };
 
-export const surveyingDetails: SurveyingDetailItem[] = [
+// ─── Navigation ──────────────────────────────────────────────────────────────
+
+export const navigationItems = [
+  { label: 'Surveying', href: '/surveying' },
+  { label: 'GIS Solutions', href: '/gis-solutions' },
+  { label: 'Photogrammetry & LiDAR', href: '/photogrammetry' },
+  { label: 'CAD & Deliverables', href: '/cad' },
+  { label: 'Contact', href: '/contact' }
+];
+
+// ─── Home page ────────────────────────────────────────────────────────────────
+
+export const homeHero = {
+  tagline: 'Precision in the field. Intelligence in every map.',
+  company: 'TVS Studio',
+  description:
+    'We provide high-precision surveying and GIS services that transform spatial data into ' +
+    'actionable insights for engineering, construction, and planning projects.',
+  ctaLabel: 'Contact Us',
+  ctaHref: '/contact',
+  secondaryCtaLabel: 'View Services',
+  secondaryCtaHref: '/surveying',
+  mediaAlt: 'TVS Studio — surveying and GIS overview'
+};
+
+export const homeServices: HomeServiceCard[] = [
   {
-    title: 'Field Preparation',
-    description:
-      'We begin with practical planning for access, site conditions, control points, and expected deliverables so field teams can work efficiently.'
+    id: 'surveying',
+    label: 'Surveying Services',
+    href: '/surveying',
+    description: getFirstParagraph('Surveying Services'),
+    capabilities: getBulletNames('Surveying Services'),
+    mediaAlt: 'GNSS receiver in the field',
+    mediaUrl: gnss2Img
   },
   {
-    title: 'Measurement & Capture',
-    description:
-      'Survey data can be collected through GNSS, total station, and drone-supported workflows depending on terrain, scale, and project precision requirements.'
+    id: 'gis-solutions',
+    label: 'GIS Solutions',
+    href: '/gis-solutions',
+    description: getFirstParagraph('GIS Solutions'),
+    capabilities: getBulletNames('GIS Solutions'),
+    mediaAlt: 'GIS solutions overview',
+    mediaUrl: gisVisual
   },
   {
-    title: 'Processing & Output',
-    description:
-      'Captured information is organized into usable outputs such as terrain models, CAD-ready files, and clearly structured survey documentation.'
+    id: 'photogrammetry',
+    label: 'Photogrammetry & LiDAR',
+    href: '/photogrammetry',
+    description: getFirstParagraph('Photogrammetry & LiDAR Processing'),
+    capabilities: getBulletNames('Photogrammetry & LiDAR Processing'),
+    mediaAlt: '3D photogrammetry model of a town',
+    mediaUrl: photogrammetryImg
+  },
+  {
+    id: 'cad',
+    label: 'CAD & Deliverables',
+    href: '/cad',
+    description: getFirstParagraph('CAD & Deliverables'),
+    capabilities: getBulletNames('CAD & Deliverables'),
+    mediaAlt: 'CAD deliverables visual placeholder'
   }
 ];
 
-export const navigationItems = [aboutContent, ...serviceSections].map(({ id, label }) => ({
-  id,
-  label
-}));
+// ─── Surveying page ───────────────────────────────────────────────────────────
+
+export const surveyingPageContent: ServicePageContent = {
+  title: 'Surveying Services',
+  subtitle: getFirstParagraph('Surveying Services'),
+  mediaAlt: 'Surveying services overview',
+  services: [
+    {
+      id: 'gnss-gps',
+      title: 'GNSS / GPS Surveying',
+      paragraphs: getParagraphs('GNSS / GPS Surveying'),
+      bullets: getBulletsRaw('GNSS / GPS Surveying'),
+      mediaAlt: 'Trimble GNSS receiver mounted in the field',
+      mediaUrl: gnss2Img
+    },
+    {
+      id: 'total-station',
+      title: 'Total Station Surveying',
+      paragraphs: getParagraphs('Total Station Surveying'),
+      bullets: getBulletsRaw('Total Station Surveying'),
+      mediaAlt: 'Total station set up at a construction site',
+      mediaUrl: gnssImg
+    },
+    {
+      id: 'drone-uav',
+      title: 'Drone (UAV) Surveys',
+      paragraphs: getParagraphs('Drone (UAV) Surveys'),
+      bullets: getBulletsRaw('Drone (UAV) Surveys'),
+      mediaAlt: 'DJI Matrice 300 drone in flight',
+      mediaUrl: matriceImg
+    },
+    {
+      id: 'topographic',
+      title: 'Topographic Surveys',
+      paragraphs: getParagraphs('Topographic Surveys'),
+      bullets: getBulletsRaw('Topographic Surveys'),
+      mediaAlt: 'Total station and topographic aerial map with contour lines',
+      mediaUrl: topographicImg
+    },
+    {
+      id: 'construction-as-built',
+      title: 'Construction & As-Built Surveys',
+      paragraphs: getParagraphs('Construction & As-Built Surveys'),
+      bullets: getBulletsRaw('Construction & As-Built Surveys'),
+      mediaAlt: 'DJI Phantom 4 RTK with controller and ground control point',
+      mediaUrl: phantom4Img
+    }
+  ]
+};
+
+// ─── GIS Solutions page ───────────────────────────────────────────────────────
+
+export const gisPageContent: ServicePageContent = {
+  title: 'GIS Solutions',
+  subtitle: getFirstParagraph('GIS Solutions'),
+  mediaAlt: 'GIS solutions overview',
+  mediaUrl: gisVisual,
+  services: [
+    {
+      id: 'webgis',
+      title: 'WebGIS Development',
+      paragraphs: getParagraphs('WebGIS Development'),
+      bullets: getBulletsRaw('WebGIS Development'),
+      mediaAlt: 'WebGIS platform screenshot placeholder'
+    },
+    {
+      id: 'spatial-data',
+      title: 'Spatial Data Management',
+      paragraphs: getParagraphs('Spatial Data Management'),
+      bullets: getBulletsRaw('Spatial Data Management'),
+      mediaAlt: 'Spatial database management placeholder'
+    },
+    {
+      id: 'cartography',
+      title: 'Mapping & Cartography',
+      paragraphs: getParagraphs('Mapping & Cartography'),
+      bullets: getBulletsRaw('Mapping & Cartography'),
+      mediaAlt: 'Cartographic map example placeholder'
+    },
+    {
+      id: 'geospatial-analysis',
+      title: 'Geospatial Analysis',
+      paragraphs: getParagraphs('Geospatial Analysis'),
+      bullets: getBulletsRaw('Geospatial Analysis'),
+      mediaAlt: 'Geospatial analysis visualization placeholder'
+    },
+    {
+      id: 'system-integration',
+      title: 'System Integration',
+      paragraphs: getParagraphs('System Integration'),
+      bullets: getBulletsRaw('System Integration'),
+      mediaAlt: 'GIS system integration diagram placeholder'
+    }
+  ]
+};
+
+// ─── Photogrammetry & LiDAR page ─────────────────────────────────────────────
+
+export const photogrammetryPageContent: ServicePageContent = {
+  title: 'Photogrammetry & LiDAR Processing',
+  subtitle: getFirstParagraph('Photogrammetry & LiDAR Processing'),
+  mediaAlt: 'DJI Matrice 300 professional survey drone',
+  mediaUrl: matriceImg,
+  services: [
+    {
+      id: 'drone-photogrammetry',
+      title: 'Drone Image Processing (Photogrammetry)',
+      paragraphs: getParagraphs('Drone Image Processing (Photogrammetry)'),
+      bullets: getBulletsRaw('Drone Image Processing (Photogrammetry)'),
+      mediaAlt: '3D photogrammetry model of a town generated from drone imagery',
+      mediaUrl: photogrammetryImg
+    },
+    {
+      id: 'lidar-processing',
+      title: 'LiDAR Data Processing',
+      paragraphs: getParagraphs('LiDAR Data Processing'),
+      bullets: getBulletsRaw('LiDAR Data Processing'),
+      mediaAlt: 'Colorized LiDAR point cloud of terrain',
+      mediaUrl: lidarImg
+    },
+    {
+      id: 'point-cloud',
+      title: 'Point Cloud Processing',
+      paragraphs: getParagraphs('Point Cloud Processing'),
+      bullets: getBulletsRaw('Point Cloud Processing'),
+      mediaAlt: 'Indoor 3D point cloud scan',
+      mediaUrl: indoorMappingImg
+    },
+    {
+      id: '3d-modeling',
+      title: '3D Modeling & Visualization',
+      paragraphs: getParagraphs('3D Modeling & Visualization'),
+      bullets: getBulletsRaw('3D Modeling & Visualization'),
+      mediaAlt: 'DJI Zenmuse L2 LiDAR sensor used for 3D data capture',
+      mediaUrl: zenmuseImg
+    }
+  ]
+};
+
+// ─── CAD & Deliverables page ──────────────────────────────────────────────────
+
+export const cadPageContent = {
+  title: 'CAD & Deliverables',
+  subtitle: getFirstParagraph('CAD & Deliverables'),
+  paragraphs: getParagraphs('CAD & Deliverables'),
+  bullets: getBulletsRaw('CAD & Deliverables'),
+  mediaAlt: 'CAD technical drawing placeholder',
+  note:
+    'All outputs are structured, accurate, and ready for immediate use in your workflow. ' +
+    'We use tools like AutoCAD to ensure deliverables meet project requirements.'
+};
