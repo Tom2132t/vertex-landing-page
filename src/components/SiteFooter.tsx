@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logo from '../assets/tvs-logo.jpeg';
+import logo from '../assets/tvs-logo-new.jpeg';
 import { contactDetails, navigationItems } from '../data/siteContent';
 
 export const SiteFooter = () => {
@@ -46,7 +46,9 @@ export const SiteFooter = () => {
             <div className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
               <div>{contactDetails.company}</div>
               <div>{contactDetails.email}</div>
-              <div>{contactDetails.phone}</div>
+              {contactDetails.phones.map((phone) => (
+                <div key={phone}>{phone}</div>
+              ))}
               <div>{contactDetails.address}</div>
             </div>
           </div>

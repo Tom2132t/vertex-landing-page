@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import logo from '../assets/tvs-logo.jpeg';
+import logo from '../assets/tvs-logo-new.jpeg';
 import { navigationItems } from '../data/siteContent';
 
 export const SiteHeader = () => {

@@ -1,9 +1,10 @@
 import { MediaBlock } from '../components/MediaBlock';
 import { PageLayout } from '../components/PageLayout';
+import cadTechnicalDrawingsImg from '../assets/CAD Technical Drawings.jpg';
 import { cadPageContent } from '../data/siteContent';
 
 export const CadPage = () => {
-  const { title, subtitle, paragraphs, bullets, mediaAlt, note } = cadPageContent;
+  const { title, subtitle, paragraphs, bullets, mediaAlt, mediaUrl, note } = cadPageContent;
 
   return (
     <PageLayout>
@@ -20,7 +21,7 @@ export const CadPage = () => {
                 {subtitle}
               </p>
             </div>
-            <MediaBlock mediaType="image" mediaUrl="" mediaAlt={mediaAlt} large />
+            <MediaBlock mediaType="image" mediaUrl={mediaUrl} mediaAlt={mediaAlt} large />
           </div>
         </div>
       </section>
@@ -65,8 +66,8 @@ export const CadPage = () => {
 
             <MediaBlock
               mediaType="image"
-              mediaUrl=""
-              mediaAlt="CAD technical drawing detail placeholder"
+              mediaUrl={cadTechnicalDrawingsImg}
+              mediaAlt="CAD technical drawings, site plan, and 3D site model"
             />
           </div>
         </div>

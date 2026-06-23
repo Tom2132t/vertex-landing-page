@@ -26,7 +26,9 @@ export const ContactPanel = () => {
             </div>
             <div>
               <div className="text-sm font-semibold text-vertex-text">Phone</div>
-              <div>{contactDetails.phone}</div>
+              {contactDetails.phones.map((phone) => (
+                <div key={phone}>{phone}</div>
+              ))}
             </div>
             <div>
               <div className="text-sm font-semibold text-vertex-text">Address</div>

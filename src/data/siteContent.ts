@@ -6,12 +6,19 @@ import gnssImg from '../assets/GNSS.jpg';
 import gnss2Img from '../assets/GNSS 2.jpg';
 import indoorMappingImg from '../assets/Indoor mapping.jpg';
 import lidarImg from '../assets/LIDAR.jpg';
+import cartographyImg from '../assets/Mapping Cartography.jpg';
 import matriceImg from '../assets/Matrice DJI 300.jpg';
 import photogrammetryImg from '../assets/PHOTOGRAMMETRY.jpg';
-import phantom4Img from '../assets/Phantom 4 RTK.jpg';
+import cadDeliverablesImg from '../assets/CAD Deliverables.jpg';
+import constructionPointCloudImg from '../assets/Construction As-Built Point Cloud.jpg';
+import webgisImg from '../assets/WebGIS Development.jpg';
+import geospatialAnalysisImg from '../assets/Geospatial Analysis.jpg';
+import spatialDataImg from '../assets/Spatial Data Management.jpg';
+import surveyingServicesImg from '../assets/Surveying Services.jpg';
+import systemIntegrationImg from '../assets/System Integration.jpg';
 import topographicImg from '../assets/Topographic-Survey.jpg';
 import zenmuseImg from '../assets/Zenmuse L2 Lidar.jpg';
-import gisVisual from '../assets/gis-visual.svg';
+import gisSolutionsImg from '../assets/GIS Solutions.jpg';
 
 // ─── Markdown parser utilities ────────────────────────────────────────────────
 
@@ -80,8 +87,8 @@ const getBulletNames = (title: string) => {
 
 export const contactDetails: ContactDetails = {
   company: 'TVS Studio',
-  email: 'info@tvsstudio.example',
-  phone: '+355 69 000 0000',
+  email: 'sergiomerdani@gmail.com',
+  phones: ['+1 (445) 210-7724', '+355 68 527 4777'],
   address: 'Tirane, Albania'
 };
 
@@ -92,6 +99,7 @@ export const navigationItems = [
   { label: 'GIS Solutions', href: '/gis-solutions' },
   { label: 'Photogrammetry & LiDAR', href: '/photogrammetry' },
   { label: 'CAD & Deliverables', href: '/cad' },
+  { label: 'Vertex', href: '/vertex' },
   { label: 'Contact', href: '/contact' }
 ];
 
@@ -127,7 +135,7 @@ export const homeServices: HomeServiceCard[] = [
     description: getFirstParagraph('GIS Solutions'),
     capabilities: getBulletNames('GIS Solutions'),
     mediaAlt: 'GIS solutions overview',
-    mediaUrl: gisVisual
+    mediaUrl: gisSolutionsImg
   },
   {
     id: 'photogrammetry',
@@ -144,7 +152,8 @@ export const homeServices: HomeServiceCard[] = [
     href: '/cad',
     description: getFirstParagraph('CAD & Deliverables'),
     capabilities: getBulletNames('CAD & Deliverables'),
-    mediaAlt: 'CAD deliverables visual placeholder'
+    mediaAlt: 'CAD drafting workflow from survey data to deliverables',
+    mediaUrl: cadDeliverablesImg
   }
 ];
 
@@ -154,6 +163,7 @@ export const surveyingPageContent: ServicePageContent = {
   title: 'Surveying Services',
   subtitle: getFirstParagraph('Surveying Services'),
   mediaAlt: 'Surveying services overview',
+  mediaUrl: surveyingServicesImg,
   services: [
     {
       id: 'gnss-gps',
@@ -192,8 +202,8 @@ export const surveyingPageContent: ServicePageContent = {
       title: 'Construction & As-Built Surveys',
       paragraphs: getParagraphs('Construction & As-Built Surveys'),
       bullets: getBulletsRaw('Construction & As-Built Surveys'),
-      mediaAlt: 'DJI Phantom 4 RTK with controller and ground control point',
-      mediaUrl: phantom4Img
+      mediaAlt: '3D point cloud scan of a building structural steel frame',
+      mediaUrl: constructionPointCloudImg
     }
   ]
 };
@@ -204,42 +214,47 @@ export const gisPageContent: ServicePageContent = {
   title: 'GIS Solutions',
   subtitle: getFirstParagraph('GIS Solutions'),
   mediaAlt: 'GIS solutions overview',
-  mediaUrl: gisVisual,
+  mediaUrl: gisSolutionsImg,
   services: [
     {
       id: 'webgis',
       title: 'WebGIS Development',
       paragraphs: getParagraphs('WebGIS Development'),
       bullets: getBulletsRaw('WebGIS Development'),
-      mediaAlt: 'WebGIS platform screenshot placeholder'
+      mediaAlt: 'Vertex Platform login screen for the WebGIS application',
+      mediaUrl: webgisImg
     },
     {
       id: 'spatial-data',
       title: 'Spatial Data Management',
       paragraphs: getParagraphs('Spatial Data Management'),
       bullets: getBulletsRaw('Spatial Data Management'),
-      mediaAlt: 'Spatial database management placeholder'
+      mediaAlt: 'Spatial data management layered diagram: sources, storage, processing, analysis, visualization, sharing',
+      mediaUrl: spatialDataImg
     },
     {
       id: 'cartography',
       title: 'Mapping & Cartography',
       paragraphs: getParagraphs('Mapping & Cartography'),
       bullets: getBulletsRaw('Mapping & Cartography'),
-      mediaAlt: 'Cartographic map example placeholder'
+      mediaAlt: 'Colorful cartographic parcel and land-use map of an urban area',
+      mediaUrl: cartographyImg
     },
     {
       id: 'geospatial-analysis',
       title: 'Geospatial Analysis',
       paragraphs: getParagraphs('Geospatial Analysis'),
       bullets: getBulletsRaw('Geospatial Analysis'),
-      mediaAlt: 'Geospatial analysis visualization placeholder'
+      mediaAlt: 'Geospatial analysis heatmap of terrain and elevation data',
+      mediaUrl: geospatialAnalysisImg
     },
     {
       id: 'system-integration',
       title: 'System Integration',
       paragraphs: getParagraphs('System Integration'),
       bullets: getBulletsRaw('System Integration'),
-      mediaAlt: 'GIS system integration diagram placeholder'
+      mediaAlt: 'Vertex GIS system integration architecture diagram',
+      mediaUrl: systemIntegrationImg
     }
   ]
 };
@@ -294,7 +309,8 @@ export const cadPageContent = {
   subtitle: getFirstParagraph('CAD & Deliverables'),
   paragraphs: getParagraphs('CAD & Deliverables'),
   bullets: getBulletsRaw('CAD & Deliverables'),
-  mediaAlt: 'CAD technical drawing placeholder',
+  mediaAlt: 'CAD drafting workflow from survey data to deliverables',
+  mediaUrl: cadDeliverablesImg,
   note:
     'All outputs are structured, accurate, and ready for immediate use in your workflow. ' +
     'We use tools like AutoCAD to ensure deliverables meet project requirements.'

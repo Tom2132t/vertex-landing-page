@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { MediaBlock } from '../components/MediaBlock';
 import { PageLayout } from '../components/PageLayout';
+import heroImg from '../assets/tvs-logo-new.jpeg';
 import { homeHero, homeServices } from '../data/siteContent';
 
 export const HomePage = () => {
@@ -38,7 +39,7 @@ export const HomePage = () => {
 
             <MediaBlock
               mediaType="image"
-              mediaUrl=""
+              mediaUrl={heroImg}
               mediaAlt={homeHero.mediaAlt}
               large
             />
@@ -61,7 +62,7 @@ export const HomePage = () => {
                 className="surface-card flex flex-col gap-5 p-6"
               >
                 {/* Card image */}
-                <div className="overflow-hidden rounded-xl border border-vertex-border">
+                <div className="overflow-hidden rounded-xl border border-vertex-border shadow-soft">
                   {service.mediaUrl ? (
                     <img
                       src={service.mediaUrl}

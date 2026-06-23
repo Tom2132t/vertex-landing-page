@@ -8,23 +8,17 @@ interface MediaBlockProps {
 }
 
 export const MediaBlock = ({ mediaType, mediaUrl, mediaAlt, large = false }: MediaBlockProps) => {
-  const sizeClass = large ? 'min-h-[340px] md:min-h-[520px]' : 'min-h-[300px] md:min-h-[400px]';
+  const heightClass = large ? 'h-[380px] md:h-[460px]' : 'h-[340px] md:h-[400px]';
 
   if (mediaUrl) {
     return (
-      <div className={`overflow-hidden rounded-2xl border border-vertex-border shadow-sm ${sizeClass}`}>
+      <div
+        className={`overflow-hidden rounded-2xl border border-vertex-border shadow-soft ${heightClass}`}
+      >
         {mediaType === 'video' ? (
-          <video
-            src={mediaUrl}
-            className="h-full w-full min-h-[inherit] object-cover"
-            controls
-          />
+          <video src={mediaUrl} className="h-full w-full object-cover" controls />
         ) : (
-          <img
-            src={mediaUrl}
-            alt={mediaAlt}
-            className="h-full w-full min-h-[inherit] object-cover"
-          />
+          <img src={mediaUrl} alt={mediaAlt} className="h-full w-full object-cover" />
         )}
       </div>
     );
@@ -32,9 +26,9 @@ export const MediaBlock = ({ mediaType, mediaUrl, mediaAlt, large = false }: Med
 
   return (
     <div
-      className={`overflow-hidden rounded-2xl border border-vertex-border bg-white shadow-sm ${sizeClass}`}
+      className={`overflow-hidden rounded-2xl border border-vertex-border bg-white shadow-soft ${heightClass}`}
     >
-      <div className="flex h-full min-h-[inherit] items-center justify-center bg-[linear-gradient(180deg,#ffffff_0%,#f8fbfc_100%)] p-8 text-center">
+      <div className="flex h-full items-center justify-center p-8 text-center">
         <div className="space-y-3">
           <div className="text-xs font-semibold uppercase tracking-[0.3em] text-vertex-primary">
             {mediaType === 'video' ? 'Video Placeholder' : 'Image Placeholder'}

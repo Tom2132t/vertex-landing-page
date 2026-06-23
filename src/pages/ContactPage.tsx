@@ -80,7 +80,11 @@ export const ContactPage = () => {
                 </div>
                 <div>
                   <div className="text-sm font-semibold text-vertex-text">Phone</div>
-                  <div className="mt-1">{contactDetails.phone}</div>
+                  {contactDetails.phones.map((phone) => (
+                    <div key={phone} className="mt-1">
+                      {phone}
+                    </div>
+                  ))}
                 </div>
                 <div>
                   <div className="text-sm font-semibold text-vertex-text">Address</div>

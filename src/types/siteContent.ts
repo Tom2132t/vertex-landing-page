@@ -19,7 +19,7 @@ export interface SiteSection {
 export interface ContactDetails {
   company: string;
   email: string;
-  phone: string;
+  phones: string[];
   address: string;
 }
 
