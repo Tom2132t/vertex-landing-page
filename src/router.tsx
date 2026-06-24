@@ -5,6 +5,7 @@ import { GisSolutionsPage } from './pages/GisSolutionsPage';
 import { HomePage } from './pages/HomePage';
 import { PhotogrammetryPage } from './pages/PhotogrammetryPage';
 import { SurveyingPage } from './pages/SurveyingPage';
+import { VertexPage } from './pages/VertexPage';
 
 export const router = createBrowserRouter(
   [
@@ -27,6 +28,10 @@ export const router = createBrowserRouter(
     {
       path: '/cad',
       element: <CadPage />
+    },
+    {
+      path: '/vertex',
+      element: <VertexPage />
     },
     {
       path: '/contact',

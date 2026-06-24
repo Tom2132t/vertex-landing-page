@@ -15,6 +15,7 @@ import webgisImg from '../assets/WebGIS Development.jpg';
 import geospatialAnalysisImg from '../assets/Geospatial Analysis.jpg';
 import spatialDataImg from '../assets/Spatial Data Management.jpg';
 import surveyingServicesImg from '../assets/Surveying Services.jpg';
+import vertexBrandImg from '../assets/Vertex Brand.jpeg';
 import systemIntegrationImg from '../assets/System Integration.jpg';
 import topographicImg from '../assets/Topographic-Survey.jpg';
 import zenmuseImg from '../assets/Zenmuse L2 Lidar.jpg';
@@ -314,4 +315,109 @@ export const cadPageContent = {
   note:
     'All outputs are structured, accurate, and ready for immediate use in your workflow. ' +
     'We use tools like AutoCAD to ensure deliverables meet project requirements.'
+};
+
+// ─── Vertex Map page ──────────────────────────────────────────────────────────
+
+export const vertexPageContent: ServicePageContent = {
+  title: 'Vertex Map',
+  subtitle:
+    'Turn Spatial Data Into Decisions. Vertex Map is a modern Web GIS platform built for ' +
+    'planners, surveyors, engineers, municipalities, utilities, and spatial data professionals. ' +
+    'It combines data visualization, editing, analysis, and decision support into a single web application.',
+  mediaAlt: 'Vertex brand mark with tagline "see more than location"',
+  mediaUrl: vertexBrandImg,
+  services: [
+    {
+      id: 'interactive-mapping',
+      title: 'Interactive Mapping',
+      paragraphs: [],
+      bullets: [
+        'Fast map rendering',
+        'WMS, WMTS, Vector Tiles, GeoJSON',
+        'Layer management',
+        'Basemaps and custom services',
+        'Mobile-friendly interface'
+      ],
+      mediaAlt: 'Screenshot of the main Vertex Map interface'
+    },
+    {
+      id: 'georeferencing',
+      title: 'Georeferencing',
+      paragraphs: [
+        'Transform scanned plans, cadastral maps, engineering drawings, and historical maps into geospatial data.'
+      ],
+      bullets: ['Absolute coordinates', 'Multiple control points', 'Real-time preview', 'Custom CRS support'],
+      mediaAlt: 'Georeferencing tool screenshot'
+    },
+    {
+      id: 'spatial-editing',
+      title: 'Spatial Editing & Digitization',
+      paragraphs: ['Create and edit spatial data directly in the browser.'],
+      bullets: ['Points, lines, polygons', 'Vertex editing', 'Snapping', 'Attribute editing', 'Multi-user workflows'],
+      mediaAlt: 'Parcel digitization screenshot'
+    },
+    {
+      id: 'property-parcel',
+      title: 'Property & Parcel Analysis',
+      paragraphs: ['Analyze parcels and land ownership information.'],
+      bullets: [
+        'Parcel boundaries',
+        'Property information',
+        'Area and perimeter calculation',
+        'Public cadastral comparison'
+      ],
+      mediaAlt: 'Cadastral comparison screenshot'
+    },
+    {
+      id: 'planning-zoning',
+      title: 'Planning & Zoning',
+      paragraphs: ['Understand how a property fits within planning regulations.'],
+      bullets: ['General Local Plans', 'Zoning categories', 'Land-use restrictions', 'Development parameters'],
+      mediaAlt: 'Planning and zoning (PPV) screenshot'
+    },
+    {
+      id: 'spatial-analysis',
+      title: 'Spatial Analysis Tools',
+      paragraphs: ['Built-in GIS tools for decision-making.'],
+      bullets: [
+        'Buffer analysis',
+        'Reachability analysis',
+        'Site selection',
+        'Measurements',
+        'Overlay analysis',
+        'Proximity analysis'
+      ],
+      mediaAlt: 'Spatial analysis workflow diagram'
+    },
+    {
+      id: 'data-management',
+      title: 'Data Management',
+      paragraphs: ['Manage data without desktop GIS software.'],
+      bullets: ['Create layers', 'Attribute management', 'CRS management', 'Import and export', 'Metadata support'],
+      mediaAlt: 'Layer management screenshot'
+    },
+    {
+      id: 'cartography-symbology',
+      title: 'Cartography & Symbology',
+      paragraphs: ['Create clear and professional map outputs.'],
+      bullets: ['Labels', 'Single styles', 'Categorized styles', 'Graduated styles', 'Print-ready maps'],
+      mediaAlt: 'Symbology dialog screenshot'
+    },
+    {
+      id: 'open-standards',
+      title: 'Open Standards',
+      paragraphs: ['Built on proven open technologies.'],
+      bullets: ['OpenLayers', 'GeoServer', 'PostgreSQL', 'PostGIS', 'GDAL', 'GeoExt', 'OGC Standards'],
+      mediaAlt: 'Vertex platform architecture diagram'
+    }
+  ]
+};
+
+export const whyVertexContent = {
+  title: 'Why Vertex?',
+  intro: 'Most GIS workflows require:',
+  chain: ['Desktop GIS', 'CAD', 'Planning Documents', 'Cadastral Data', 'Spreadsheets'],
+  outcome: 'Vertex brings them together in one platform.',
+  highlights: ['Less software.', 'Less duplication.', 'More decisions.']
 };
