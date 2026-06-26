@@ -15,7 +15,7 @@ import webgisImg from '../assets/WebGIS Development.jpg';
 import geospatialAnalysisImg from '../assets/Geospatial Analysis.jpg';
 import spatialDataImg from '../assets/Spatial Data Management.jpg';
 import surveyingServicesImg from '../assets/Surveying Services.jpg';
-import vertexBrandImg from '../assets/Vertex Brand.jpeg';
+import vertexBrandImg from '../assets/Vertex Brand.png';
 import systemIntegrationImg from '../assets/System Integration.jpg';
 import topographicImg from '../assets/Topographic-Survey.jpg';
 import zenmuseImg from '../assets/Zenmuse L2 Lidar.jpg';

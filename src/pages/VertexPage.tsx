@@ -21,14 +21,19 @@ export const VertexPage = () => {
             <Link to="/contact" className="btn-primary">
               Request a Demo
             </Link>
-            <a href="#features" className="btn-secondary">
+            <a
+              href="https://map.vertexmaps.cc/#/map"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary"
+            >
               Explore the Platform
             </a>
           </div>
         </div>
         {mediaUrl && (
           <div className="pb-12 md:pb-16">
-            <img src={mediaUrl} alt={mediaAlt} className="mx-auto block h-auto w-full max-w-[220px]" />
+            <img src={mediaUrl} alt={mediaAlt} className="mx-auto block h-auto w-full max-w-[320px]" />
           </div>
         )}
       </section>
