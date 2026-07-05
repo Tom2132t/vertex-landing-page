@@ -419,5 +419,64 @@ export const whyVertexContent = {
   intro: 'Most GIS workflows require:',
   chain: ['Desktop GIS', 'CAD', 'Planning Documents', 'Cadastral Data', 'Spreadsheets'],
   outcome: 'Vertex brings them together in one platform.',
-  highlights: ['Less software.', 'Less duplication.', 'More decisions.']
+  highlights: ['Less software.', 'Less duplication.', 'More decisions.'],
+  benefits: [
+    { title: 'Save time', description: 'Streamline your GIS workflow.' },
+    { title: 'Reduce costs', description: 'Cut software and training expenses.' },
+    { title: 'Work anywhere', description: 'Access your data from any device.' }
+  ]
+};
+
+export const vertexPlansContent = {
+  title: 'Vertex Plans – Installed in Your Environment',
+  subtitle: 'On-premise installation. Full control. No monthly fees.',
+  footnote: '100% installed in your environment. Full data ownership and security.',
+  plans: [
+    {
+      id: 'basic',
+      name: 'Basic',
+      description: 'Ideal for small teams and simple GIS workflows.',
+      highlighted: false,
+      features: [
+        'Core GIS functionality',
+        'Layer & data management',
+        'Basic symbology & labeling',
+        'Import / Export',
+        'Users up to 3',
+        'Email support',
+        'Installation included'
+      ]
+    },
+    {
+      id: 'standard',
+      name: 'Standard',
+      description: 'Advanced tools for growing organizations.',
+      highlighted: true,
+      badge: 'Most Popular',
+      features: [
+        'All Basic features',
+        'Advanced symbology',
+        'Print-ready maps',
+        'Spatial analysis tools',
+        'Users up to 10',
+        'Priority support',
+        'Installation included'
+      ]
+    },
+    {
+      id: 'enterprise',
+      name: 'Enterprise',
+      description: 'Full power and control for large organizations.',
+      highlighted: false,
+      features: [
+        'All Standard features',
+        'Advanced analysis',
+        'Role-based access',
+        'Custom integrations',
+        'Unlimited users',
+        'Dedicated support',
+        'Installation included'
+      ]
+    }
+  ]
 };
