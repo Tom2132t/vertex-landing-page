@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
 import { PageLayout } from '../components/PageLayout';
-import { vertexPageContent, vertexPlansContent, whyVertexContent } from '../data/siteContent';
+import {
+  vertexPageContent,
+  vertexPlansContent,
+  vertexPlatformsContent,
+  whyVertexContent
+} from '../data/siteContent';
 
 const benefitIcons: Record<string, JSX.Element> = {
   'Save time': (
@@ -44,6 +49,32 @@ const planIcons: Record<string, JSX.Element> = {
   )
 };
 
+const platformIcons: Record<string, JSX.Element> = {
+  'Enterprise Geospatial Platform': (
+    <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <path d="m12 3 9 5-9 5-9-5 9-5Z" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="m3 13 9 5 9-5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="m3 8 9 5 9-5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+  'Solar Site Planner': (
+    <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <circle cx="12" cy="12" r="4.5" />
+      <path
+        d="M12 2v2.5M12 19.5V22M22 12h-2.5M4.5 12H2M19.07 4.93l-1.77 1.77M6.7 17.3l-1.77 1.77M19.07 19.07l-1.77-1.77M6.7 6.7 4.93 4.93"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
+  'Urban Intelligence': (
+    <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <rect x="4" y="9" width="6" height="12" rx="1" />
+      <rect x="14" y="4" width="6" height="17" rx="1" />
+      <path d="M6.5 12.5h1M6.5 15.5h1M6.5 18.5h1M16.5 7.5h1M16.5 10.5h1M16.5 13.5h1M16.5 16.5h1" strokeLinecap="round" />
+    </svg>
+  )
+};
+
 const CheckIcon = ({ className = 'h-4 w-4 text-vertex-primary' }: { className?: string }) => (
   <svg viewBox="0 0 24 24" className={`shrink-0 ${className}`} fill="none" stroke="currentColor" strokeWidth="2.5">
     <path d="m5 12 5 5L19 7" strokeLinecap="round" strokeLinejoin="round" />
@@ -81,12 +112,7 @@ export const VertexPage = () => {
             <Link to="/contact" className="btn-primary">
               Request a Demo
             </Link>
-            <a
-              href="https://map.vertexmaps.cc/#/map"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary"
-            >
+            <a href="#explore-platform" className="btn-secondary">
               Explore the Platform
             </a>
           </div>
@@ -96,6 +122,39 @@ export const VertexPage = () => {
             <img src={mediaUrl} alt={mediaAlt} className="mx-auto block h-auto w-full max-w-[320px]" />
           </div>
         )}
+      </section>
+
+      {/* ── Explore the Platform ─────────────────────────────────────────── */}
+      <section id="explore-platform" className="scroll-mt-24 bg-vertex-background">
+        <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-20">
+          <div className="mx-auto mb-12 max-w-2xl text-center">
+            <div className="eyebrow">Explore the Platform</div>
+            <h2 className="section-title mt-3">{vertexPlatformsContent.title}</h2>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {vertexPlatformsContent.platforms.map((platform) => (
+              <div
+                key={platform.id}
+                className="surface-card flex flex-col items-center gap-4 p-6 text-center"
+              >
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-vertex-primary/10 text-vertex-primary">
+                  {platformIcons[platform.name]}
+                </div>
+                <h3 className="text-lg font-semibold text-vertex-text">{platform.name}</h3>
+                <p className="text-sm leading-relaxed text-slate-600">{platform.description}</p>
+                <a
+                  href={platform.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary mt-2 w-full"
+                >
+                  Open Platform
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ── Feature grid ─────────────────────────────────────────────────── */}

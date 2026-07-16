@@ -414,6 +414,31 @@ export const vertexPageContent: ServicePageContent = {
   ]
 };
 
+export const vertexPlatformsContent = {
+  title: 'Select a Platform to Get Started',
+  platforms: [
+    {
+      id: 'enterprise-geospatial',
+      name: 'Enterprise Geospatial Platform',
+      description: 'A complete platform for managing and analyzing spatial data.',
+      url: 'https://map.vertexmaps.cc/#/map'
+    },
+    {
+      id: 'solar-site-planner',
+      name: 'Solar Site Planner',
+      description: '3D terrain-based solar potential, panel layout, and sunlight analysis.',
+      url: 'https://tvs-studio.cc/photovoltaic-power-potential/'
+    },
+    {
+      id: 'urban-intelligence',
+      name: 'Urban Intelligence',
+      description:
+        'A 2D and 3D planning environment for evaluating land use, urban development, infrastructure, and future growth.',
+      url: '#'
+    }
+  ]
+};
+
 export const whyVertexContent = {
   title: 'Why Vertex?',
   intro: 'Most GIS workflows require:',
