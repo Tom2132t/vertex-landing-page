@@ -420,7 +420,9 @@ export const vertexPlatformsContent = {
     {
       id: 'enterprise-geospatial',
       name: 'Enterprise Geospatial Platform',
-      description: 'A complete platform for managing and analyzing spatial data.',
+      description:
+        'A complete platform for managing and analyzing spatial data. ' +
+        'Available daily from 16:00–00:00 CET/CEST.',
       url: 'https://map.vertexmaps.cc/#/map'
     },
     {
