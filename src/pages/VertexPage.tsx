@@ -132,17 +132,17 @@ export const VertexPage = () => {
             <h2 className="section-title mt-3">{vertexPlatformsContent.title}</h2>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {vertexPlatformsContent.platforms.map((platform) => (
               <div
                 key={platform.id}
-                className="surface-card flex flex-col items-center gap-4 p-6 text-center"
+                className="surface-card flex h-full flex-col items-center gap-4 p-6 text-center"
               >
                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-vertex-primary/10 text-vertex-primary">
                   {platformIcons[platform.name]}
                 </div>
                 <h3 className="text-lg font-semibold text-vertex-text">{platform.name}</h3>
-                <p className="text-sm leading-relaxed text-slate-600">{platform.description}</p>
+                <p className="flex-1 text-sm leading-relaxed text-slate-600">{platform.description}</p>
                 <a
                   href={platform.url}
                   target="_blank"
