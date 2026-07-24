@@ -436,7 +436,7 @@ export const vertexPlatformsContent = {
       name: 'Urban Intelligence',
       description:
         'A 2D and 3D planning environment for evaluating land use, urban development, infrastructure, and future growth.',
-      url: '#'
+      url: 'https://tvs-studio.cc/urban-intelligence/'
     }
   ]
 };
